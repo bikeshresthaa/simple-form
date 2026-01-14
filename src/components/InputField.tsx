@@ -1,7 +1,7 @@
 import { useState } from 'react';
 
 function InputField({label}: {label?: string}) {
-  const [inputValue, setInputValue] = useState('not given');
+  const [inputValue, setInputValue] = useState('');
 
   return (
     <div>

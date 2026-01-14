@@ -11,7 +11,8 @@ function App() {
       <CheckBox label="I agree!" />
       <RadioButton 
         title="SELECT A GENDER:"
-        options={["Male", "Female", "Other"]}
+        // options={["Male", "Female", "Other"]}
+        
       />
     </>
   )

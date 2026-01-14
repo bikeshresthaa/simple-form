@@ -7,7 +7,7 @@ function App() {
 
   return (
     <>
-      <InputField />
+      <InputField label="Name" />
       <CheckBox />
       <RadioButton 
         title="SELECT A GENDER:"

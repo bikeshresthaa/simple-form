@@ -1,4 +1,5 @@
 import InputField from './components/InputField';
+import CheckBox from './components/CheckBox';
 import './App.css'
 
 function App() {
@@ -6,6 +7,7 @@ function App() {
   return (
     <>
       <InputField />
+      <CheckBox />
     </>
   )
 }

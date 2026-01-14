@@ -9,7 +9,10 @@ function App() {
     <>
       <InputField />
       <CheckBox />
-      <RadioButton />
+      <RadioButton 
+        title="SELECT A GENDER:"
+        options={["Male", "Female", "Other"]}
+      />
     </>
   )
 }

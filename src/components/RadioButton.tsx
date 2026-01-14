@@ -1,7 +1,7 @@
 import { useState } from 'react';
 
-function RadioButton() {
-  const [selectedOption, setSelectedOption] = useState('Male');
+function RadioButton({title, options}: {title?: string, options?: string[]}) {
+  const [selectedOption, setSelectedOption] = useState(options ? options[0] : "");
 
   const handleOptionChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSelectedOption(e.target.value);
@@ -9,18 +9,15 @@ function RadioButton() {
 
   return (
     <div>
-      <h2>Choose a gender: </h2>
+      <h2>{ title }</h2>
+      {options?.map((option) => ( 
+        <label htmlFor={option}>
+          <input type="radio" id={option} name={options?.join("-")} value={option} checked={ selectedOption === option } onChange={handleOptionChange} />
+          {option}
+        </label>
+      ))}
 
-      <label htmlFor="male">
-        <input type="radio" id='male' name='options' value="Male" checked={ selectedOption === "Male" } onChange={handleOptionChange} />
-        Male
-      </label>
-
-      <label htmlFor="female">
-        <input type="radio" id='female' name='options' value="Female" checked={ selectedOption === "Female" } onChange={handleOptionChange} />
-        Female
-      </label>
-      <p>{selectedOption === "Male" ? "You are Male!" : "You are Female!" }</p>
+      <p>Selected: { selectedOption }</p>
     </div>
   )
 }

@@ -28,7 +28,7 @@ function Input({type, label, value, onChange}: InputProps) {
   return (
     <div>
       <label>
-        {label}
+        {label}:
         &ensp;
         <input 
           type={type}

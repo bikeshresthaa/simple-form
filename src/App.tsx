@@ -1,17 +1,21 @@
-import InputField from './components/InputField';
-import CheckBox from './components/CheckBox';
+import Input from './components/InputField';
 import RadioButton from './components/RadioButton';
 import './App.css'
+import { useState } from 'react';
 
 function App() {
+  const [name, setName] = useState("");
+  const [agree, setAgree] = useState(false);
 
   return (
     <>
-      <InputField label="Name" />
-      <CheckBox label="I agree!" />
+      <Input type="text" label="Name" value={name} onChange={setName} />
+        <p>You Entered: {name}</p>
+      <Input type="checkbox" label="I agree!" value={agree} onChange={setAgree} />
+      
       <RadioButton 
         title="SELECT A GENDER:"
-        // options={["Male", "Female", "Other"]}
+        options={["Male", "Female", "Other"]}
         
       />
     </>

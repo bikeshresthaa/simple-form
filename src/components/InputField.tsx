@@ -1,16 +1,45 @@
-import { useState } from 'react';
+import React from "react";
 
-function InputField({label}: {label?: string}) {
-  const [inputValue, setInputValue] = useState('');
+interface TextInputProps {
+  type: "text";
+  label: string;
+  value: string;
+  onChange: (value: string ) => void;
+}
+interface CheckboxInputProps {
+  type: "checkbox";
+  label: string;
+  value: boolean;
+  onChange: (value: boolean ) => void;
+}
+
+type InputProps = TextInputProps | CheckboxInputProps;
+
+function Input({type, label, value, onChange}: InputProps) {
+
+  function handleChange(event: React.ChangeEvent<HTMLInputElement>) {
+    if (type === "text") {
+      onChange(event.target.value);
+    }else {
+      onChange(event.target.checked);
+    }
+  }
 
   return (
     <div>
-      <label>{ label }:
-      <input type="text" value={ inputValue } onChange={(e) => setInputValue(e.target.value)} />
+      <label>
+        {label}
+        &ensp;
+        <input 
+          type={type}
+          checked={type === "checkbox" ? value as boolean : undefined} 
+          onChange={handleChange}
+          value={type === "text" ? value as string : undefined}
+        />
       </label>
-      <p>You entered: {inputValue}</p>
+      
     </div>
   )
 }
 
-export default InputField;
+export default Input;
